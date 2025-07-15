@@ -46,7 +46,14 @@ const ProductList = () => {
                   Sửa
                 </button>
                 <button
-                  onClick={() => deleteProduct(product.id)}
+                  onClick={() => {
+                    const confirmDelete = window.confirm(
+                      "Bạn có chắc chắn muốn xóa sản phẩm này?"
+                    );
+                    if (confirmDelete) {
+                      deleteProduct(product.id);
+                    }
+                  }}
                   className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
                 >
                   Xóa
